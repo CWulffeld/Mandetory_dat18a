@@ -37,9 +37,9 @@ public class MenuController {
     }
 
 
-    @GetMapping("/home")
+    @GetMapping("/index")
     public String logout(){
 
-        return "home";
+        return "index";
     }
 }
