@@ -14,17 +14,7 @@ import java.sql.Statement;
 public class BlogRepository {
 
 
-
-    public static void createblogTable() throws SQLException, ClassNotFoundException {
-
-
-
-
-        System.out.println("1");
-
-        Statement stmt = DBConfig.getConnection().createStatement();
-
-        System.out.println("5");
+    public void createblogTable() throws SQLException, ClassNotFoundException {
         String sql_createBlogTable = "CREATE TABLE IF NOT EXISTS blogs" +
                 "(" +
                 "Blog_ID int," +
@@ -32,16 +22,16 @@ public class BlogRepository {
                 " Blog_Tekst varchar(10000) " +
                 ")";
 
-        System.out.println("6");
-        stmt.execute(sql_createBlogTable);
-//        SQLExecute(sql_createBlogTable);
 
-        System.out.println("7");
-        stmt.close();
+        SQLExecute(sql_createBlogTable);
+
     }
 
 
-//    private void SQLExecute(String SQL) throws ClassNotFoundException, SQLException {
-//        stmt.execute(SQL);
+    private void SQLExecute(String SQL) throws ClassNotFoundException, SQLException {
+        Statement stmt = DBConfig.getConnection().createStatement();
+        stmt.execute(SQL);
+        stmt.close();
 
+    }
 }
