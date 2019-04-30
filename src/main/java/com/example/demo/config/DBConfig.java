@@ -1,5 +1,6 @@
 package com.example.demo.config;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import java.sql.Connection;
@@ -10,8 +11,10 @@ import java.sql.SQLException;
 @Configuration
 public class DBConfig {
 
+
     public static Connection getConnection() throws SQLException, ClassNotFoundException {
         System.out.println("2");
+
         Class.forName("com.mysql.cj.jdbc.Driver");
 
 
