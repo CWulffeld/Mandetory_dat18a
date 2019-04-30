@@ -98,6 +98,12 @@
         .container .info span .fa {
             color: #EF3B3A;
         }
+
+        .error{
+            color: red;
+            border: red;
+        }
+
     </style>
 
 </head>
@@ -110,7 +116,15 @@
 <div class="login-page">
     <div class="form">
         <h1> Admin Login </h1>
-        <form class="login-form" action="/login" method="post">
+
+
+        <form class="login-form" th:action="@{/login}" method="post">
+            <div th:if="${error}">
+            <div class="error">
+                <p> Forkert brugernavn eller password</p>
+                <p> Prøv igen </p>
+            </div>
+            </div>
             <input type="text" name="user" placeholder="user"/>
             <input type="password" name="password" placeholder="password"/>
             <button type="submit"> login</button>
