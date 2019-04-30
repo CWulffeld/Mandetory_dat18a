@@ -1,6 +1,7 @@
 package com.example.demo.repository;
 
 import com.example.demo.config.DBConfig;
+import com.mysql.cj.api.mysqla.result.Resultset;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -26,6 +27,29 @@ public class BlogRepository {
         SQLExecute(sql_createBlogTable);
 
     }
+
+
+    public void insertBlog(String title, String text) throws SQLException, ClassNotFoundException {
+
+        String sql_insertBlog = "INSERT INTO blogs" +
+                "(Blog_Title, " +
+                "Blog_Tekst " +
+
+                "VALUES " +
+                "('" + title + "', '" +
+                text  +
+                "')";
+        SQLExecute(sql_insertBlog);
+
+    }
+
+//    public Resultset selectAllBlogs(){
+//
+//
+//
+//    }
+
+
 
 
     private void SQLExecute(String SQL) throws ClassNotFoundException, SQLException {
