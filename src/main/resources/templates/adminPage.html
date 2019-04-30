@@ -49,5 +49,18 @@
 <div class="container">
 <button style="float: right; margin: 2px; background-color: hotpink; border-color: hotpink " onclick="window.location.href='/index'" type="button" class="btn btn-primary">Log out</button>
 </div>
+
+<div id="AddBlog">
+    <h1>Opret ny blog</h1>
+
+    <form method="post" th:action="@{/adminPage}" id="opretBlog">
+
+        <input type="text" name="title" placeholder="Titel" id="title">
+        <textarea name="text" placeholder="..." id="text"></textarea>
+        <input type="submit" value="Opret blog">
+
+    </form>
+
+</div>
 </body>
 </html>

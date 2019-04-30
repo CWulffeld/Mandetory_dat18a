@@ -33,7 +33,7 @@ public class BlogRepository {
 
         String sql_insertBlog = "INSERT INTO blogs" +
                 "(Blog_Title, " +
-                "Blog_Tekst " +
+                "Blog_Tekst " + ")" +
 
                 "VALUES " +
                 "('" + title + "', '" +

@@ -11,7 +11,6 @@ import java.sql.SQLException;
 @Configuration
 public class DBConfig {
 
-
     public static Connection getConnection() throws SQLException, ClassNotFoundException {
         Class.forName("com.mysql.cj.jdbc.Driver");
 

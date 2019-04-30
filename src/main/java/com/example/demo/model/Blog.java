@@ -17,6 +17,14 @@ public class Blog {
         this.text = text;
     }
 
+    public Blog(String title, String text){
+
+        this.title=title;
+        this.text=text;
+    }
+
+    public Blog(){}
+
     public List<Blog> getBlogList() {
         return blogList;
     }
