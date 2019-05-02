@@ -6,7 +6,6 @@
 
     <style>
         body {
-            margin: 0;
             font-family: Arial, Helvetica, sans-serif;
         }
 
@@ -33,6 +32,19 @@
             background-color: hotpink;
             color: white;
         }
+        #AddBlog{
+            float: left;
+            padding-left: 30px;
+        }
+        #opretBlog input{
+            margin-top: 10px;
+        }
+        #opretBlog textarea{
+            margin-top: 10px;
+            height: 300px;
+            width: 750px;
+
+        }
     </style>
 </head>
 <body>
@@ -56,7 +68,10 @@
     <form method="post" th:action="@{/adminPage}" id="opretBlog">
 
         <input type="text" name="title" placeholder="Titel" id="title">
+
+        <br>
         <textarea name="text" placeholder="..." id="text"></textarea>
+        <br>
         <input type="submit" value="Opret blog">
 
     </form>
