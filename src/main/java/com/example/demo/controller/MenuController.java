@@ -86,4 +86,15 @@ public class MenuController {
 
         return "index";
     }
+
+    @GetMapping("/logout")
+    public String logout(HttpSession session) {
+        try {
+            session.removeAttribute("logged_in");
+            return "index";
+        } catch (Exception ee) {
+            // dummy
+        }
+        return "index";
+    }
 }
