@@ -1,15 +1,15 @@
 package com.example.demo.model;
 
-import java.util.List;
 
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+
+@EntityScan
 public class Blog {
 
     private int blogID;
     private String title;
     private String text;
 
-
-    private List<Blog> blogList;
 
     public Blog(int blogID, String title, String text) {
         this.blogID = blogID;
@@ -25,13 +25,6 @@ public class Blog {
 
     public Blog(){}
 
-    public List<Blog> getBlogList() {
-        return blogList;
-    }
-
-    public void setBlogList(List<Blog> blogList) {
-        this.blogList = blogList;
-    }
     public int getBlogID() {
         return blogID;
     }
@@ -50,7 +43,5 @@ public class Blog {
     public void setText(String text) {
         this.text = text;
     }
-
-
 
 }

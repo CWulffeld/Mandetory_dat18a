@@ -3,8 +3,6 @@ package com.example.demo.controller;
 import com.example.demo.model.Blog;
 import com.example.demo.service.AdminService;
 import com.example.demo.service.BlogService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,11 +13,10 @@ import org.springframework.web.context.request.WebRequest;
 
 import javax.servlet.http.HttpSession;
 import java.sql.SQLException;
+import java.util.List;
 
 @Controller
 public class MenuController {
-
-    private final Logger log = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
     AdminService adminService;
@@ -28,17 +25,15 @@ public class MenuController {
     BlogService blogService;
 
     @GetMapping("/")
-    public String index() {
+    public String index(Model model) throws SQLException, ClassNotFoundException {
+
+        List<Blog> blogs = blogService.getAllBlogs();
+        model.addAttribute("blogs", blogs);
         return "index";
     }
 
-
-
     @GetMapping("/login")
     public String login(){
-        log.info("login action called...");
-
-        log.info("login action ended...");
 
         return "login";
     }
@@ -66,12 +61,11 @@ public class MenuController {
                 model.addAttribute("blog", new Blog());
                 return "adminPage";
             } else {
-                return "/index";
+                return "redirect:/";
             }
         } catch (Exception ee) {
-            return "/index";
+            return "redirect:/";
         }
-
     }
 
     @PostMapping("/adminPage")
@@ -81,20 +75,14 @@ public class MenuController {
         return "adminPage";
     }
 
-    @GetMapping("/index")
-    public String logout(){
-
-        return "index";
-    }
-
     @GetMapping("/logout")
     public String logout(HttpSession session) {
         try {
             session.removeAttribute("logged_in");
-            return "index";
+            return "redirect:/";
         } catch (Exception ee) {
-            // dummy
+            return "redirect:/";
         }
-        return "index";
+
     }
 }

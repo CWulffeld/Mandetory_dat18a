@@ -8,7 +8,7 @@ import java.util.List;
 public interface BlogService {
 
 
-    public List<Blog> getAllBlogs();
+    List<Blog> getAllBlogs() throws ClassNotFoundException, SQLException;
 
-    public void addBlog(Blog blog) throws SQLException, ClassNotFoundException;
+    void addBlog(Blog blog) throws SQLException, ClassNotFoundException;
 }

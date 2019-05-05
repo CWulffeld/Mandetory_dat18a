@@ -1,6 +1,5 @@
 package com.example.demo.config;
 
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import java.sql.Connection;
@@ -15,7 +14,7 @@ public class DBConfig {
         Class.forName("com.mysql.cj.jdbc.Driver");
 
         Connection connect = DriverManager
-                .getConnection("jdbc:mysql://den1.mysql6.gear.host:3306/datamatiker18a", "datamatiker18a", "Ie5qK~3?U8Zy");
+                .getConnection("jdbc:mysql://den1.mysql1.gear.host:3306/dat18a2", "dat18a2", "Lp724V-Ec?BN");
 
         return connect;
     }
